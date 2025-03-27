@@ -16,6 +16,7 @@
     }
    ```
    其中mappings和files的区别在于是否产生映射, mmap的速度更快
+
    2. 这个过程中也会伴随mlock
 2. llama_model_mmap.cpp
    1. llama_files: 实现逻辑比较简单, 就是简单的`ggml_fopen`和`fread/fwrite`, 从file中加载出数据
