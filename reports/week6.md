@@ -44,6 +44,5 @@
    具体实现时, `load_tensors`会在加载buf和tensor的时候尝试lock住对应的内存, 并加入到对应的vector中
 4. 目前思路/下周计划
    `llama.cpp`中的lock方法现在是静态的, 计划做以下两个方法比较效率
-   1. 通过统计来确定哪些tensor被lock
-   2. 通过一种类似cache的做法来确定lock
+   手动实现替换掉原来mmap的方法, 自己管理tensor的io
    然后FFN层计算时即时抛掉小于一定阈值的项, 这样就不用每次全部fetch一遍了
